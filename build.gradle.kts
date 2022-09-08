@@ -4,6 +4,13 @@ plugins {
     `java-library`
     id("io.papermc.paperweight.userdev") version "1.3.8"
     id("net.minecrell.plugin-yml.bukkit") version "0.5.2" // Generates plugin.yml
+    id("xyz.jpenilla.run-paper") version "1.0.6"
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven("https://repo.papermc.io/repository/maven-public/")
 }
 
 group = "net.glomc.multipaper.plugins"
@@ -16,6 +23,7 @@ java {
 
 dependencies {
     paperweightDevBundle("puregero.multipaper", "1.19.2-R0.1-SNAPSHOT")
+
 }
 
 tasks {
