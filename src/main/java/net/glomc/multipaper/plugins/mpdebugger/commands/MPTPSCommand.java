@@ -22,6 +22,8 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
+import static net.glomc.multipaper.plugins.mpdebugger.MPDebugger.PLUGIN_PREFIX;
+
 public class MPTPSCommand extends Command implements Runnable {
     private final HashMap<Player, BossBar> debugEnabled = new HashMap<>();
     private BukkitTask task = null;
@@ -38,13 +40,13 @@ public class MPTPSCommand extends Command implements Runnable {
         if (!testPermission(sender)) return false;
 
         if (!(sender instanceof Player player)) {
-            sender.sendMessage(ChatColor.RED + "Only players can execute this command.");
+            sender.sendMessage(PLUGIN_PREFIX.append(Component.text(": Only players can execute this command").color(NamedTextColor.RED)));
             return false;
         }
 
         if (debugEnabled.containsKey(player)) {
             player.hideBossBar(debugEnabled.remove(player));
-            player.sendMessage("MultiPaper TPS bossbar disabled");
+            sender.sendMessage(PLUGIN_PREFIX.append(Component.text(": MultiPaper TPS bossbar has been disabled").color(NamedTextColor.RED)));
             return false;
         }
 
@@ -52,7 +54,7 @@ public class MPTPSCommand extends Command implements Runnable {
         debugEnabled.put(player, bossBar);
         player.showBossBar(bossBar);
 
-        sender.sendMessage("MultiPaper TPS bossbar enabled");
+        sender.sendMessage(PLUGIN_PREFIX.append(Component.text(": MultiPaper TPS bossbar has been enabled").color(NamedTextColor.GREEN)));
 
         if (task == null) {
             run();

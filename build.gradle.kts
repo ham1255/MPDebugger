@@ -4,6 +4,7 @@ plugins {
     `java-library`
     id("io.papermc.paperweight.userdev") version "1.3.8"
     id("net.minecrell.plugin-yml.bukkit") version "0.5.2" // Generates plugin.yml
+    id ("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 repositories {
@@ -45,13 +46,6 @@ tasks {
         filteringCharset = Charsets.UTF_8.name() // We want UTF-8 for everything
     }
 
-    /*
-    reobfJar {
-      // This is an example of how you might change the output location for reobfJar. It's recommended not to do this
-      // for a variety of reasons, however it's asked frequently enough that an example of how to do it is included here.
-      outputJar.set(layout.buildDirectory.file("libs/PaperweightTestPlugin-${project.version}.jar"))
-    }
-     */
 }
 
 // Configure plugin.yml generation
