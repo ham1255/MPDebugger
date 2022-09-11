@@ -1,5 +1,6 @@
 package net.glomc.multipaper.plugins.mpdebugger;
 
+import net.glomc.multipaper.plugins.mpdebugger.commands.ListServersCommand;
 import net.glomc.multipaper.plugins.mpdebugger.commands.MPTPSCommand;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;;
@@ -19,6 +20,8 @@ public final class MPDebugger extends JavaPlugin {
             throw new RuntimeException("This plugin is intended to be ran on MultiPaper platform only", e);
         }
         getServer().getCommandMap().register("mpdebugger", new MPTPSCommand("mptps"));
+        getServer().getCommandMap().register("mpdebugger", new ListServersCommand("listservers", this));
+        getServer().sendMessage(PLUGIN_PREFIX.append(Component.text(": has been enabled successfully").color(NamedTextColor.WHITE)));
     }
 
     @Override
