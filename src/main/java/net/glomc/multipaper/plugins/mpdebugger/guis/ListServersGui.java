@@ -42,7 +42,7 @@ public class ListServersGui extends AbstractGui {
         render();
     }
 
-    private void render() {
+    protected void render() {
         if (locked.get()) {
             return;
         }

@@ -1,5 +1,6 @@
 package net.glomc.multipaper.plugins.mpdebugger;
 
+import net.glomc.multipaper.plugins.mpdebugger.commands.GetChunkAt;
 import net.glomc.multipaper.plugins.mpdebugger.commands.ListServersCommand;
 import net.glomc.multipaper.plugins.mpdebugger.commands.MPTPSCommand;
 import net.kyori.adventure.text.Component;
@@ -21,6 +22,7 @@ public final class MPDebugger extends JavaPlugin {
         }
         getServer().getCommandMap().register("mpdebugger", new MPTPSCommand("mptps"));
         getServer().getCommandMap().register("mpdebugger", new ListServersCommand("listservers", this));
+        getServer().getCommandMap().register("mpdebugger", new GetChunkAt("getchunkat"));
         getServer().sendMessage(PLUGIN_PREFIX.append(Component.text(": has been enabled successfully").color(NamedTextColor.WHITE)));
     }
 
