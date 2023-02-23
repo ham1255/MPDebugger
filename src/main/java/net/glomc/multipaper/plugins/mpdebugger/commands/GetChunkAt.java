@@ -21,7 +21,7 @@ public class GetChunkAt extends Command {
             }
             int x = Integer.parseInt(strings[0]);
             int z = Integer.parseInt(strings[1]);
-            player.sendMessage(Component.text("requesting chunk at " + x + " " + z));
+            player.sendMessage(Component.text("(sync) requesting chunk at " + x + " " + z));
             player.getWorld().getChunkAt(x, z);
         }
         return false;

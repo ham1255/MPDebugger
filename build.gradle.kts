@@ -2,10 +2,11 @@ import net.minecrell.pluginyml.bukkit.BukkitPluginDescription
 
 plugins {
     `java-library`
-    id("io.papermc.paperweight.userdev") version "1.3.8"
+    id("io.papermc.paperweight.userdev") version "1.5.1"
     id("net.minecrell.plugin-yml.bukkit") version "0.5.2" // Generates plugin.yml
-    id ("com.github.johnrengelman.shadow") version "7.1.2"
-    id("xyz.jpenilla.run-paper") version "1.0.7-MP-SNAPSHOT"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("xyz.jpenilla.run-paper") version "2.0.0"
+
 }
 
 repositories {
@@ -23,9 +24,9 @@ java {
 }
 
 dependencies {
-    paperweightDevBundle("puregero.multipaper", "1.19.2-R0.1-SNAPSHOT")
+    paperweight.devBundle("puregero.multipaper", "1.19.3-R0.1-SNAPSHOT")
     implementation("net.glomc.utils", "GuiUtils", "1.5.0-SNAPSHOT")
-    compileOnly("puregero.multipaper", "MultiPaper-MasterMessagingProtocol", "1.19.2-R0.1-SNAPSHOT")
+    compileOnly("puregero.multipaper", "MultiPaper-MasterMessagingProtocol", "2.11.0-1.19.3")
 }
 
 tasks {
@@ -34,8 +35,8 @@ tasks {
         dependsOn(reobfJar)
     }
 
-    runMojangMappedServer {
-
+    runServer {
+        serverJar(File("/home/mohammed/MultiPaper/build/libs/MultiPaper-paperclip-1.19.3-R0.1-SNAPSHOT-reobf.jar"))
     }
 
     compileJava {

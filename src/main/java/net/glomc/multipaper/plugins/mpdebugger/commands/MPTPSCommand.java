@@ -9,8 +9,8 @@ import net.minecraft.server.level.ServerPlayer;
 import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.craftbukkit.v1_19_R1.CraftChunk;
-import org.bukkit.craftbukkit.v1_19_R1.scheduler.CraftScheduler;
+import org.bukkit.craftbukkit.v1_19_R2.CraftChunk;
+import org.bukkit.craftbukkit.v1_19_R2.scheduler.CraftScheduler;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitTask;
 import org.jetbrains.annotations.NotNull;
@@ -88,7 +88,7 @@ public class MPTPSCommand extends Command implements Runnable {
         Chunk chunk = player.getChunk();
 
         if (chunk != null) {
-            ExternalServer owner = ((CraftChunk) chunk).getHandle().externalOwner;
+            ExternalServer owner = ((CraftChunk) chunk).getHandle().getChunkHolder().externalOwner;
             final boolean isOwnerNull = owner == null;
 
             int localPlayers = 0;
@@ -108,7 +108,7 @@ public class MPTPSCommand extends Command implements Runnable {
                 }
                 if (MultiPaper.isExternalPlayer(serverPlayer) &&
                         serverPlayer.getBukkitEntity().getChunk() instanceof CraftChunk craftChunk
-                        && craftChunk.getHandle().externalOwner == owner) {
+                        && craftChunk.getHandle().getChunkHolder().externalOwner == owner) {
                     externalPlayers++;
                 }
 

@@ -1,6 +1,6 @@
 package net.glomc.multipaper.plugins.mpdebugger.guis;
 
-import co.technove.flare.libs.com.google.common.primitives.Ints;
+import com.google.common.primitives.Ints;
 import net.glomc.utils.gui.AbstractGui;
 import net.glomc.utils.gui.ItemBuilder;
 import net.kyori.adventure.text.Component;
@@ -18,8 +18,6 @@ import puregero.multipaper.ExternalServer;
 import puregero.multipaper.MultiPaper;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
